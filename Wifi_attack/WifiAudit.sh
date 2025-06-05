@@ -14,10 +14,10 @@ BLUE="\033[1;34m"
 NC="\033[0m" # Sin Color
 
 # --- Comprobación de Privilegios ---
-#if [[ $EUID -ne 0 ]]; then
-   #echo -e "${RED}[!] Este script debe ser ejecutado como root.${NC}" 
-   #exit 1
-#fi
+if [[ $EUID -ne 0 ]]; then
+   echo -e "${RED}[!] Este script debe ser ejecutado como root.${NC}" 
+   exit 1
+fi
 
 # --- Comprobación de Herramientas Necesarias ---
 if ! command -v airmon-ng &> /dev/null || ! command -v airodump-ng &> /dev/null || ! command -v aircrack-ng &> /dev/null; then
